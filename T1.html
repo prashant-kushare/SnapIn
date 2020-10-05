@@ -1,0 +1,308 @@
+<html>
+	<body> 		
+		<!-- We are hiding the standard chat widget with the css below-->
+		<style type='text/css'>
+			.embeddedServiceHelpButton .helpButton .uiButton.helpButtonDisabled {
+			  background: #0f4dbc;
+			}
+
+			.embeddedServiceHelpButton .helpButton .uiButton.helpButtonEnabled {
+			  background: #0f4dbc;
+			}
+
+			.embeddedServiceLiveAgentStateChatItem .nameAndTimeContent {
+			  color: #fff;
+			}
+
+			.embeddedServiceLiveAgentStateChatItem.agent .nameAndTimeDotDivider {
+			  background-color: #fff;
+			}
+
+			.embeddedServiceHelpButton .helpButton:before {
+			  background: url(https://toyrusca--uat--c.documentforce.com/servlet/servlet.ImageServer?id=015030000004pLI&oid=00D030000008acd&lastMod=1600068436000);
+			  background-size: 95px;
+			  background-position: bottom left;
+			  background-repeat: no-repeat;
+			  content: '';
+			  position: absolute;
+			  width: 100px;
+			  height: 69px;
+			  z-index: 99;
+			  bottom: 0;
+			  left: -52px;
+			}
+
+			.sidebarHeader.minimizedContainer.embeddedServiceSidebarMinimizedDefaultUI:before {
+			  background: url(https://toyrusca--uat--c.documentforce.com/servlet/servlet.ImageServer?id=015030000004pLI&oid=00D030000008acd&lastMod=1600068436000);
+			  background-size: 95px;
+			  background-position: bottom left;
+			  background-repeat: no-repeat;
+			  content: '';
+			  position: fixed;
+			  width: 100px;
+			  height: 69px;
+			  z-index: 99;
+			  bottom: 0;
+			  right: 157px;
+			}
+
+			.embeddedServiceSidebarMinimizedDefaultUI.newMessage, .embeddedServiceSidebarMinimizedDefaultUI.idleTimeout {
+			  background: #0f4dbc;
+			}
+
+			@media (max-width:768px) {
+			  .embeddedServiceHelpButton .helpButton .uiButton {
+				width: 50px;
+				height: 50px;
+				border-radius: 100%;
+				min-width: unset;
+			  }
+
+			  .embeddedServiceSidebarMinimizedDefaultUI {
+				width: 50px;
+				height: 50px;
+				min-width: unset;
+				min-height: unset;
+				border-radius: 100%;
+			  }
+
+			  .embeddedServiceHelpButton .embeddedServiceIcon {
+				margin: 0 4px;
+			  }
+
+			  .embeddedServiceSidebarMinimizedDefaultUI .messageContent {
+				margin: 0 1px;
+			  }
+
+			  .embeddedServiceHelpButton .helpButton:before {
+				background-size: 100%;
+				width: 50px;
+				height: 50px;
+				right: 0;
+				left: unset;
+				bottom: 44px;
+			  }
+
+			  .embeddedServiceSidebarMinimizedDefaultUI.sidebarHeader {
+				bottom: 0 !important;
+			  }
+
+			  .embeddedServiceHelpButton .helpButton {
+				bottom: 55px;
+				right: 30px !important;
+			  }
+
+			  .embeddedServiceSidebarMinimizedDefaultUI.helpButton {
+				bottom: 55px;
+				right: 30px !important;
+			  }
+
+			  .embeddedServiceSidebarMinimizedDefaultUI .minimizedImage, .embeddedServiceSidebarMinimizedDefaultUI .embeddedServiceIcon {
+				margin-right: 0;
+			  }
+
+			  .sidebarHeader.minimizedContainer.embeddedServiceSidebarMinimizedDefaultUI:before {
+				background-size: 100%;
+				width: 50px;
+				height: 50px;
+				right: 29px;
+				bottom: 104px;
+			  }
+			}
+		</style>
+		
+		<!-- Embedded chat deployment code (Auto Generated) -->
+		<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+		
+		<!-- Chat button event binding and initializing-->
+		<script type='text/javascript'> 
+			
+			// Auto generated code for chat settings 
+			var initESW = function(gslbBaseURL) {
+				
+				//------- TODO: Pass the language, firstname of the visitor and email parameters
+				var language = 'EN';
+				var email = 'annemarie_strand@yahoo.com';
+				var firstName = 'Annemarie';
+				//--------TODO end
+                
+				embedded_svc.settings.displayHelpButton = true; 
+				embedded_svc.settings.language = language;
+				
+				if(language === "EN"){
+					embedded_svc.settings.defaultMinimizedText = 'LIVE CHAT IS OPEN';
+					embedded_svc.settings.disabledMinimizedText = 'LIVE CHAT IS CLOSED';
+					embedded_svc.settings.offlineSupportMinimizedText = 'LIVE CHAT IS CLOSED';   
+					embedded_svc.settings.loadingText = 'Loading'; 
+			    	}
+				else if(language === "FR"){
+					embedded_svc.settings.defaultMinimizedText = 'CLAVARDAGE OUVERT';
+					embedded_svc.settings.disabledMinimizedText = 'CLAVARDAGE FERMÉ';
+					embedded_svc.settings.offlineSupportMinimizedText = 'CLAVARDAGE FERMÉ'; 
+					embedded_svc.settings.loadingText = 'Chargement'; 
+				}
+				
+				
+				// Sets the auto-population of pre-chat form fields
+				embedded_svc.settings.prepopulatedPrechatFields = {Chat_Language__c: language}; 
+				   
+				embedded_svc.settings.extraPrechatFormDetails = [	
+																	{
+																		// This is the Person Account record type to find the existing Person Accounts
+																		"label":"RecordTypeId",
+																		"value":"0121U000000G9pFQAS" 
+																	},
+					  												{
+																		"label": "Status",
+																		"value": "New"
+																	},
+																	{
+																		"label": "Origin",
+																		"value": "Chat"
+																	}
+																];
+				
+				if(email){
+					embedded_svc.settings.extraPrechatFormDetails.push({"label":"Email", "value":email},
+																	   {
+																			"label": "Visitor Logged In?",
+																			"value": true,
+																			"displayToAgent": true,
+																			 "transcriptFields": ["Visitor_Logged_In__c"]
+																	   }); 
+					embedded_svc.settings.prepopulatedPrechatFields.Email = email;
+
+				}
+				
+				if(firstName){
+					embedded_svc.settings.extraPrechatFormDetails.push({
+																	   		"label": "First Name",
+																			"value": firstName
+																	   });
+				}
+				
+				embedded_svc.settings.extraPrechatInfo = [
+															{
+																"entityName": "Contact",
+																"saveToTranscript": "ContactId",
+																"showOnCreate": true,
+																"entityFieldMaps": [{
+																	"isExactMatch": false,
+																	"fieldName": "FirstName",
+																	"doCreate": false,
+																	"doFind": false,
+																	"label": "First Name"
+																}, {
+																	"isExactMatch": false,
+																	"fieldName": "LastName",
+																	"doCreate": false,
+																	"doFind": false,
+																	"label": "Last Name"
+																}]
+															},
+															{
+																'entityName':'Account',
+																'showOnCreate':true,
+																'saveToTranscript':'AccountId',
+																"linkToEntityName": "Case",
+   																"linkToEntityField": "AccountId",
+																'entityFieldMaps':[
+																{
+																	"isExactMatch": false,
+																	"fieldName": "FirstName",
+																	"doCreate": true,
+																	"doFind": false,
+																	"label": "First Name"
+																},
+																{
+																	"isExactMatch": false,
+																	"fieldName": "LastName",
+																	"doCreate": true,
+																	"doFind": false,
+																	"label": "Last Name"
+																},
+															    {
+																  "doCreate": true,
+																  "doFind": false,
+																  "fieldName": "RecordTypeId",
+																  "isExactMatch": true, 
+																  "label": "RecordTypeId"
+																},
+																{
+																	"doCreate":true,
+																	"doFind":true,
+																	"fieldName":"PersonEmail",
+																	"isExactMatch":true,
+																	"label":"Email"
+																},
+																{
+																	"doCreate":true,
+																	"doFind":false,
+																	"fieldName":"Email_Key__c",
+																	"isExactMatch":true,
+																	"label":"Email"
+																}]
+															},
+															{
+																"entityName": "Case",
+																"entityFieldMaps": [{
+																	"isExactMatch": false,
+																	"fieldName": "Status",
+																	"doCreate": true,
+																	"doFind": false,
+																	"label": "Status"
+																}, 
+																{
+																	"isExactMatch": false,
+																	"fieldName": "Origin",
+																	"doCreate": true,
+																	"doFind": false,
+																	"label": "Origin"
+																}]
+															}
+														];
+				
+				embedded_svc.settings.directToButtonRouting = function(prechatFormData) { 
+					if (language === "EN"){
+						return "57303000000001X";
+					}
+					else if(language === "FR"){
+						return "57303000000001c"; 
+					}
+				}
+
+				embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+				embedded_svc.settings.entryFeature = 'LiveAgent';
+
+				embedded_svc.init(
+					'https://toyrusca--uat.my.salesforce.com',
+					'https://uat-truca.cs196.force.com',
+					gslbBaseURL,
+					'00D030000008acd',
+					'Toys_R_Us_Website',
+					{
+						baseLiveAgentContentURL: 'https://c.la2-c1cs-ia4.salesforceliveagent.com/content',
+						deploymentId: '57203000000001S',
+						buttonId: '57303000000001N',
+						baseLiveAgentURL: 'https://d.la2-c1cs-ia4.salesforceliveagent.com/chat',
+						eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I03000000GmaJEAS_1742f3b36e6',
+						isOfflineSupportEnabled: true
+					}
+				);
+		    }; 
+
+		    if (!window.embedded_svc) {
+				var s = document.createElement('script');
+				s.setAttribute('src', 'https://toyrusca--uat.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+				s.onload = function() {
+					initESW(null);
+				};
+				document.body.appendChild(s);
+		    } 
+			else {
+				initESW('https://service.force.com');
+		    }
+		
+		</script>
+	</body>
+</html>
